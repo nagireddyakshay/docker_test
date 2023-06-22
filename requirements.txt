@@ -1,1 +1,2 @@
 mabwiser>=1.11.2
+mabwiser
