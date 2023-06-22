@@ -52,7 +52,7 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker tag ghcr.io/${{ github.repository }}:source_build 
+          docker tag ghcr.io/${{ github.repository }}:source_build \
           ghcr.io/${{ github.repository }}:${{ steps.version.outputs.version }}
           
           docker push ghcr.io/${{ github.repository }}:${{ steps.version.outputs.version }}
