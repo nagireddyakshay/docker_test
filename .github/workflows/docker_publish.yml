@@ -8,7 +8,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '00 12 */15 * *' # Runs at 8:00 AM EST for every 2 weeks
+    - cron: '00 12 */15 * *' # Runs at 8:00 AM EST once in every 15 days
 
 jobs:
   build:
@@ -37,13 +37,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deleting the Existing Image
-        run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository }}
-          IMAGE_TAG=latest
-          docker pull $IMAGE_NAME:$IMAGE_TAG || true
-          docker rmi $IMAGE_NAME:$IMAGE_TAG || true
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v2
