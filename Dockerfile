@@ -8,6 +8,4 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 
 # Install the required packages
-RUN pip install --no-cache-dir -r requirements.txt
-
-
+RUN pip install --trusted-host pypi.org --no-cache-dir -r requirements.txt
