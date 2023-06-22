@@ -1,6 +1,9 @@
 # Use an official Python runtime as a parent image
 FROM python:3.8-slim-buster
 
+# Install gcc and other dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends gcc && rm -rf /var/lib/apt/lists/*
+
 # Copy the requirements.txt into the container
 COPY requirements.txt ./
 
