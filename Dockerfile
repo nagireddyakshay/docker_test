@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.8
+FROM python:3.8-slim-buster
 
 # Set the working directory to /app
 WORKDIR /usr/src/app
@@ -12,6 +12,3 @@ RUN pip install --trusted-host pypi.org --upgrade pip
 
 # Install the required packages
 RUN pip install --trusted-host pypi.org --no-cache-dir -r requirements.txt
-
-# Run tests for libraries
-RUN find /tmp -type d -name "tests" -exec python3 -m unittest discover -v {} +

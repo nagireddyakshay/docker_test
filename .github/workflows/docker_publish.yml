@@ -21,7 +21,15 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push Docker image
+
+      - name: Deleting the Existing Image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository }}
+          IMAGE_TAG=latest
+          docker pull $IMAGE_NAME:$IMAGE_TAG || true
+          docker rmi $IMAGE_NAME:$IMAGE_TAG || true
+
+      - name: Build and Push Docker Image
         uses: docker/build-push-action@v2
         with:
           context: .
