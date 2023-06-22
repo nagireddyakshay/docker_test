@@ -14,4 +14,4 @@ RUN pip install --trusted-host pypi.org --upgrade pip
 RUN pip install --trusted-host pypi.org --no-cache-dir -r requirements.txt
 
 # Run tests for libraries
-RUN find /tmp -name "run_all.py" -execdir python {} \
+RUN find /tmp -type d -name "tests" -exec python3 -m unittest discover -v {} +
