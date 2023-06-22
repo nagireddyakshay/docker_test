@@ -1,6 +1,5 @@
 jurity>=1.2.0
 mabwiser>=1.11.2
-seq2pat>=1.1.1
 textwiser>=1.4.0
 mab2rec>=1.1.0
 selective>=1.0.1
