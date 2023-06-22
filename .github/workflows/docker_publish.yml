@@ -19,11 +19,6 @@ jobs:
       - name: Install semver
         run: npm install -g semver
 
-      - name: Version File Creation
-        run: |
-          if [ ! -f VERSION ]; then
-          echo "0.1.0" > VERSION
-          fi
       - name: Version Bump
         id: version
         run: |
