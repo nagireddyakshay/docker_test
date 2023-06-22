@@ -1,2 +1,1 @@
-mabwiser>=1.11.2
-mabwiser
+seq2pat>1.1.1
