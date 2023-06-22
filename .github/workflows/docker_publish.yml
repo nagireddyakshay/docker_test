@@ -16,6 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install semver
+        run: npm install -g semver
+
       - name: Version File Creation
         run: |
           if [ ! -f VERSION ]; then
